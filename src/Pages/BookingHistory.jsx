@@ -12,7 +12,9 @@ const BookingHistory = () => {
   useEffect(() => {
     const fetchBookings = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/hotels/history");
+        const response = await fetch(
+          "https://mern-backend-hotelbookingsystem.onrender.com/api/hotels/history"
+        );
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -46,9 +48,12 @@ const BookingHistory = () => {
   const handleDelete = async (id) => {
     console.log(`Delete booking ID: ${id}`);
     try {
-      const response = await fetch(`http://localhost:5000/api/hotels/cancel/${id}`, {
-        method: "DELETE",
-      });
+      const response = await fetch(
+        `https://mern-backend-hotelbookingsystem.onrender.com/api/hotels/cancel/${id}`,
+        {
+          method: "DELETE",
+        }
+      );
       if (!response.ok) {
         throw new Error("Failed to delete booking.");
       }

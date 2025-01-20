@@ -27,16 +27,19 @@ const PaymentForm = () => {
 
     try {
       // Send payment details to backend
-      const response = await fetch("http://localhost:5000/api/payments/create", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          bookingId,
-          cardDetails,
-        }),
-      });
+      const response = await fetch(
+        "https://mern-backend-hotelbookingsystem.onrender.com/api/payments/create",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            bookingId,
+            cardDetails,
+          }),
+        }
+      );
 
       if (!response.ok) {
         throw new Error("Failed to store payment details.");

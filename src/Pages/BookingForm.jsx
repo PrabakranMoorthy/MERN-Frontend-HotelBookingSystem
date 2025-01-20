@@ -52,13 +52,16 @@ const BookingForm = () => {
       storedFormData.push(formData);
       //localStorage.setItem('formData', JSON.stringify(storedFormData));
       try {
-        const response = await fetch('http://localhost:5000/api/hotels/book', {
-            method: 'POST',
+        const response = await fetch(
+          "https://mern-backend-hotelbookingsystem.onrender.com/api/hotels/book",
+          {
+            method: "POST",
             headers: {
-                'Content-Type': 'application/json',
+              "Content-Type": "application/json",
             },
             body: JSON.stringify(formData), // Convert form data to JSON
-        });
+          }
+        );
 
        // const result = await response.json();
         console.log("test");

@@ -17,12 +17,15 @@ const CreateProfile = () => {
 
     const fetchUserData = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/users/profile/${userId}`, {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
-        });
+        const response = await fetch(
+          `https://mern-backend-hotelbookingsystem.onrender.com/api/users/profile/${userId}`,
+          {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          }
+        );
 
         if (!response.ok) {
           const errorData = await response.json();
@@ -62,14 +65,17 @@ const CreateProfile = () => {
     }
 
     try {
-      const response = await fetch(`http://localhost:5000/api/users/update-profile/${userId}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-        body: JSON.stringify(userData),
-      });
+      const response = await fetch(
+        `https://mern-backend-hotelbookingsystem.onrender.com/api/users/update-profile/${userId}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+          body: JSON.stringify(userData),
+        }
+      );
 
       if (!response.ok) {
         const errorData = await response.json();
